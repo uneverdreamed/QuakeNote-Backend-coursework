@@ -1,0 +1,58 @@
+# ===== Секреты и окружение =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+keys/
+secrets.json
+appsettings.*.local.json
+
+# ===== Сборка .NET =====
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+publish/
+*.dll
+*.exe
+*.pdb
+*.nupkg
+*.snupkg
+project.lock.json
+artifacts/
+
+# ===== Visual Studio =====
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+launchSettings.json.user
+_ReSharper*/
+*.DotSettings.user
+
+# ===== VS Code / JetBrains =====
+.vscode/
+.idea/
+*.swp
+
+# ===== Тесты и покрытие =====
+TestResults/
+[Tt]est[Rr]esult*/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
+
+# ===== Логи =====
+*.log
+logs/
+
+# ===== Docker =====
+docker-compose.override.local.yml
+
+# ===== ОС =====
+.DS_Store
+Thumbs.db
+desktop.ini

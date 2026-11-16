@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuakeNote.Auth.Core\QuakeNote.Auth.Core.csproj" />
+    <ProjectReference Include="..\QuakeNote.Auth.Data\QuakeNote.Auth.Data.csproj" />
+    <ProjectReference Include="..\..\..\Shared\QuakeNote.Shared.Contracts\QuakeNote.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\Shared\QuakeNote.Shared.Messaging\QuakeNote.Shared.Messaging.csproj" />
+    <ProjectReference Include="..\..\..\Shared\QuakeNote.Shared.Web\QuakeNote.Shared.Web.csproj" />
+    <ProjectReference Include="..\..\..\Shared\QuakeNote.Shared.Cache\QuakeNote.Shared.Cache.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

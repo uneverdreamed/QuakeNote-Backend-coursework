@@ -1,0 +1,6 @@
+@QuakeNote.Auth.API_HostAddress = http://localhost:5232
+
+GET {{QuakeNote.Auth.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
