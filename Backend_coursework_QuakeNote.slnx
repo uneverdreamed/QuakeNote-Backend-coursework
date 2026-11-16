@@ -47,5 +47,6 @@
     <File Path=".env" />
     <File Path=".env.example" />
     <File Path=".gitignore" />
+    <File Path="docker-compose.yml" />
   </Folder>
 </Solution>
