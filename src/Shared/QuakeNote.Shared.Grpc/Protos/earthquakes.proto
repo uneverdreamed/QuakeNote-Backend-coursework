@@ -1,0 +1,47 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "QuakeNote.Shared.Grpc.Earthquakes";
+package quakenote.earthquakes;
+
+import "google/protobuf/timestamp.proto";
+
+service EarthquakesGrpc {
+  // Поиск ближайшего события к точке и моменту отчёта (для верификации)
+  rpc FindNearestEarthquake (FindNearestEarthquakeRequest) returns (FindNearestEarthquakeReply);
+  // Приборные данные по станциям для события (для расчёта GMICE)
+  rpc GetStationReadings (GetStationReadingsRequest) returns (GetStationReadingsReply);
+}
+
+message FindNearestEarthquakeRequest {
+  double latitude = 1;
+  double longitude = 2;
+  google.protobuf.Timestamp timestamp = 3;
+  int32 window_minutes = 4;
+}
+
+message FindNearestEarthquakeReply {
+  bool found = 1;                   
+  string earthquake_uid = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+  double magnitude = 4;
+  double epicenter_lat = 5;
+  double epicenter_lon = 6;
+  double depth_km = 7;
+}
+
+message GetStationReadingsRequest {
+  string earthquake_uid = 1;
+}
+
+message StationReading {
+  string station_uid = 1;
+  double station_lat = 2;           
+  double station_lon = 3;
+  double pga = 4;                       // см/с²
+  double pgv = 5;                       // см/с
+  double distance_to_epicenter_km = 6;
+}
+
+message GetStationReadingsReply {
+  repeated StationReading readings = 1;
+}

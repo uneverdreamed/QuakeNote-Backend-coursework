@@ -1,0 +1,23 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "QuakeNote.Shared.Grpc.Reports";
+package quakenote.reports;
+
+service ReportsGrpc {
+  // Агрегат отчётов по событию (для макросейсмической части event_assessment)
+  rpc GetReportsStatsByEarthquake (ReportsStatsRequest) returns (ReportsStatsReply);
+}
+
+message ReportsStatsRequest {
+  string earthquake_uid = 1;
+}
+
+message ReportsStatsReply {
+  int32 total_count = 1;
+  int32 verified_count = 2;
+  int32 outlier_count = 3;
+  int32 unverified_count = 4;
+  int32 pending_count = 5;
+  bool has_mean_intensity = 6;          // false, если нет неаномальных отчётов
+  double mean_intensity = 7;            // среднее felt_intensity по отчётам без outlier
+}
