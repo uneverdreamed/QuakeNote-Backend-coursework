@@ -24,6 +24,9 @@ public static class CacheExtensions
 
         services.AddSingleton<IConnectionMultiplexer>(_ => ConnectionMultiplexer.Connect(options));
         services.AddSingleton<ICacheService, RedisCacheService>();
+
+        services.AddHealthChecks().AddCheck<RedisHealthCheck>("redis");
+
         return services;
     }
 }
