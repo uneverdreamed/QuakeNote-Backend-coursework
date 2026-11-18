@@ -11,4 +11,9 @@ public static class ClaimsPrincipalExtensions
     public static string? GetJti(this ClaimsPrincipal user) => user.FindFirst("jti")?.Value;
 
     public static bool IsAdmin(this ClaimsPrincipal user) => user.IsInRole(Roles.Admin);
+
+    public static DateTimeOffset? GetExpiresAt(this ClaimsPrincipal user)
+    => long.TryParse(user.FindFirst("exp")?.Value, out var exp)
+        ? DateTimeOffset.FromUnixTimeSeconds(exp)
+        : null;
 }

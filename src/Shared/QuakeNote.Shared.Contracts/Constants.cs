@@ -20,3 +20,9 @@ public static class EventVerificationStatuses
     public const string Disputed = "disputed";
     public const string InsufficientData = "insufficient_data";
 }
+
+public static class JwtDefaults
+{
+    public const string Issuer = "quakenote-auth";
+    public const string Audience = "quakenote-api";
+}
