@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using QuakeNote.Shared.Contracts;
+using QuakeNote.Shared.Contracts.Errors;
 
 namespace QuakeNote.Shared.Web.Auth;
 
@@ -16,4 +17,8 @@ public static class ClaimsPrincipalExtensions
     => long.TryParse(user.FindFirst("exp")?.Value, out var exp)
         ? DateTimeOffset.FromUnixTimeSeconds(exp)
         : null;
+
+    public static Guid GetRequiredUserUid(this ClaimsPrincipal user)
+    => user.GetUserUid()
+       ?? throw new UnauthorizedException("Недействительный токен.", "invalid_token");
 }
