@@ -48,5 +48,6 @@
     <File Path=".env.example" />
     <File Path=".gitignore" />
     <File Path="docker-compose.yml" />
+    <File Path="GrpcStatsCheck.cs" />
   </Folder>
 </Solution>

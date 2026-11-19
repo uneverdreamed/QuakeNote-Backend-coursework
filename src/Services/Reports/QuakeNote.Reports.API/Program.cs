@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using QuakeNote.Reports.API.GrpcServices;
 using QuakeNote.Reports.Core;
 using QuakeNote.Reports.Data;
 using QuakeNote.Shared.Cache.Extensions;
 using QuakeNote.Shared.Messaging.Extensions;
+using QuakeNote.Shared.Web.Auth;
 using QuakeNote.Shared.Web.Extensions;
 using Serilog;
 
@@ -23,6 +25,7 @@ builder.Services.AddQuakeNoteJwtAuth(builder.Configuration);
 builder.Services.AddQuakeNoteServiceAuth(builder.Configuration);
 builder.Services.AddQuakeNoteControllers();
 builder.Services.AddQuakeNoteSwagger(ServiceTitle, "Отчёты пользователей об ощутимых землетрясениях, расширенная анкета MSK-64, история отчётов.");
+builder.Services.AddGrpc(options => options.Interceptors.Add<ServiceSecretInterceptor>());
 builder.Services.AddHealthChecks().AddDbContextCheck<ReportsDbContext>("db");
 
 var app = builder.Build();
@@ -38,6 +41,7 @@ app.UseQuakeNoteSwagger(ServiceTitle);
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGrpcService<ReportsGrpcServicer>();
 app.MapQuakeNoteHealth();
 
 app.Run();
