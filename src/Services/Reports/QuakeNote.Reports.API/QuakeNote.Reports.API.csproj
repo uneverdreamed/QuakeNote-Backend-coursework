@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <ProjectReference Include="..\QuakeNote.Reports.Core\QuakeNote.Reports.Core.csproj" />
@@ -23,6 +23,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>93149412-9268-4214-a183-6b7d7277cd46</UserSecretsId>
   </PropertyGroup>
 
 </Project>
