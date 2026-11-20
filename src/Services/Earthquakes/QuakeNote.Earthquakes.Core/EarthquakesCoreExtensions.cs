@@ -5,6 +5,7 @@ using QuakeNote.Earthquakes.Core.Abstractions;
 using QuakeNote.Earthquakes.Core.Infrastructure;
 using QuakeNote.Earthquakes.Core.Services;
 using QuakeNote.Earthquakes.Core.Validators;
+using QuakeNote.Earthquakes.Core.Seeding;
 
 namespace QuakeNote.Earthquakes.Core;
 
@@ -24,6 +25,7 @@ public static class EarthquakesCoreExtensions
         services.AddScoped<EventAssessmentService>();
 
         services.AddValidatorsFromAssemblyContaining<CreateEarthquakeDtoValidator>();
+        services.AddScoped<DemoDataSeeder>();
         return services;
     }
 }

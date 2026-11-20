@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using QuakeNote.Earthquakes.API.GrpcServices;
 using QuakeNote.Earthquakes.Core;
 using QuakeNote.Earthquakes.Core.Consumers;
+using QuakeNote.Earthquakes.Core.Seeding;
 using QuakeNote.Earthquakes.Data;
 using QuakeNote.Shared.Cache.Extensions;
 using QuakeNote.Shared.Grpc.Reports;
@@ -61,6 +62,9 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     await scope.ServiceProvider.GetRequiredService<EarthquakesDbContext>().Database.MigrateAsync();
+
+    if (app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("Seed:DemoData"))
+        await scope.ServiceProvider.GetRequiredService<DemoDataSeeder>().SeedAsync();
 }
 
 app.UseSerilogRequestLogging();
