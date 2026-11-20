@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Consumers\" />
+    <Folder Include="Grpc\" />
   </ItemGroup>
 
   <ItemGroup>
