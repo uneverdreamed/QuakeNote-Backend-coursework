@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <ProjectReference Include="..\QuakeNote.Earthquakes.Core\QuakeNote.Earthquakes.Core.csproj" />
@@ -30,6 +30,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>7d02816f-bb90-41d8-97d2-aa3235fdd44e</UserSecretsId>
   </PropertyGroup>
 
 </Project>
