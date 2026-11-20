@@ -8,7 +8,7 @@ namespace QuakeNote.Earthquakes.API.Controllers;
 
 /// <summary>Управление событиями и показаниями (только роль admin).</summary>
 [ApiController]
-[Authorize(Policy = AuthPolicies.Admin)]
+[Authorize(Policy = AuthPolicies.AdminOnly)]
 [Route("api/admin/earthquakes")]
 [ProducesResponseType(StatusCodes.Status401Unauthorized)]
 [ProducesResponseType(StatusCodes.Status403Forbidden)]
